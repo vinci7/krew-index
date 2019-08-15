@@ -1,0 +1,41 @@
+apiVersion: krew.googlecontainertools.github.com/v1alpha2
+kind: Plugin
+metadata:
+  name: manage-cfg
+spec:
+  platforms:
+  - uri: https://github.com/it2911/kubectl-cfg/releases/download/v0.0.1/kubectl-cfg-darwin-amd64.zip
+    sha256: 7fff954078165e0a05e737ae6d830bd827e6d341aad86a28e005744c6eef07f4
+    bin: kubectl_cfg
+    files:
+    - from: "*"
+      to: "."
+    selector:
+      matchLabels:
+        os: darwin
+        arch: amd64
+  - uri: https://github.com/it2911/kubectl-cfg/releases/download/v0.0.1/kubectl-cfg-linux-amd64.zip
+    sha256: 6178a7f29c1b6b1b5d744412313914544033d75ad48cbffdcd634b8eb635786d
+    bin: kubectl_cfg
+    files:
+    - from: "*"
+      to: "."
+    selector:
+      matchLabels:
+        os: linux
+        arch: amd64
+  - uri: https://github.com/it2911/kubectl-cfg/releases/download/v0.0.1/kubectl-cfg-windows-amd64.zip
+    sha256: a5463c1dd461ff22b67281b57cd70e12f8a359cf9310bb38b2a57a2e97c9d37e
+    bin: kubectl_cfg.exe
+    files:
+    - from: "*"
+      to: "."
+    selector:
+      matchLabels:
+        os: windows
+        arch: amd64
+  version: v0.0.1
+  homepage: https://github.com/it2911/kubectl-cfg
+  caveats: This plugin requires an existing KUBECONFIG file.
+  shortDescription: A easier way to manage the k8s config
+  description: Kubectl cfg is a kubectl plugin that provides you a easier way to manage the config of your Kubernetes cluster.
